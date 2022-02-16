@@ -1,0 +1,15 @@
+---
+title: Data models
+author: ''
+date: ''
+slug: []
+categories: []
+tags: []
+weight: 5
+---
+
+```{r, echo = FALSE}
+htmltools::tagList(
+  print_mult_tbl("A page with datamodels", data)
+)
+```
