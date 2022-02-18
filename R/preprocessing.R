@@ -1,5 +1,3 @@
-library(magrittr)
-
 `%!in%` = Negate(`%in%`)
 
 tbl_to_html <- function(ind, tbl){
@@ -43,6 +41,19 @@ print_mult_tbl <- function(category, tbl) {
   empty_line <- rep("", length(ind))
   return(c(rbind(title_html, body_html, empty_line)))
 }
+
+# Package names
+packages <- c("here", "blogdown", "reactablefmtr")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(utils::installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+#invisible(lapply(packages, library, character.only = TRUE))
+library(magrittr)
+library(blogdown)
 
 path_back_end_db <- here::here("R", "data models.xlsm")
 
